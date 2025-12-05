@@ -137,7 +137,7 @@ export default function LeaderboardPage() {
                                             2
                                         </div>
                                         <div className="w-20 h-20 rounded-xl bg-gray-800 mb-4 overflow-hidden border border-gray-700">
-                                            <img src={top3[1].icon} alt={top3[1].name} className="w-full h-full object-cover" />
+                                            <img src={top3[1].imageUrl} alt={top3[1].name} className="w-full h-full object-cover" />
                                         </div>
                                         <h3 className="text-white font-bold text-lg mb-1 truncate w-full text-center">{top3[1].name}</h3>
                                         <div className="flex items-center gap-1 text-gray-400 text-sm mb-4">
@@ -170,7 +170,7 @@ export default function LeaderboardPage() {
                                             1
                                         </div>
                                         <div className="w-24 h-24 rounded-xl bg-gray-800 mb-4 overflow-hidden border-2 border-yellow-400/50">
-                                            <img src={top3[0].icon} alt={top3[0].name} className="w-full h-full object-cover" />
+                                            <img src={top3[0].imageUrl} alt={top3[0].name} className="w-full h-full object-cover" />
                                         </div>
                                         <h3 className="text-white font-bold text-xl mb-1 truncate w-full text-center">{top3[0].name}</h3>
                                         <div className="flex items-center gap-2 text-yellow-400 text-sm mb-6 font-medium">
@@ -201,7 +201,7 @@ export default function LeaderboardPage() {
                                             3
                                         </div>
                                         <div className="w-20 h-20 rounded-xl bg-gray-800 mb-4 overflow-hidden border border-gray-700">
-                                            <img src={top3[2].icon} alt={top3[2].name} className="w-full h-full object-cover" />
+                                            <img src={top3[2].imageUrl} alt={top3[2].name} className="w-full h-full object-cover" />
                                         </div>
                                         <h3 className="text-white font-bold text-lg mb-1 truncate w-full text-center">{top3[2].name}</h3>
                                         <div className="flex items-center gap-1 text-gray-400 text-sm mb-4">
@@ -336,7 +336,7 @@ export default function LeaderboardPage() {
 
                                         {/* Server Info */}
                                         <div className="md:col-span-6 flex items-center gap-4 mb-4 md:mb-0">
-                                            <img src={server.icon} alt={server.name} className="w-12 h-12 rounded-lg object-cover bg-gray-800" />
+                                            <img src={server.imageUrl} alt={server.name} className="w-12 h-12 rounded-lg object-cover bg-gray-800" />
                                             <div className="min-w-0">
                                                 <div className="flex items-center gap-2 mb-1">
                                                     <Link href={`/servers/${server.id}`} className="font-bold text-white hover:text-[#4ade80] transition-colors truncate">
