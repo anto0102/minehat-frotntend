@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* Minecraft-inspired Premium Color Palette */
+:root {
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --card-bg: #1a1a2e;
+  --card-bg-hover: #252542;
+
+  /* Minecraft Colors */
+  --minecraft-green: #4ade80;
+  --minecraft-green-dark: #22c55e;
+  --minecraft-green-glow: rgba(74, 222, 128, 0.3);
+  --minecraft-brown: #78350f;
+  --minecraft-dirt: #8b5a2b;
+  --minecraft-stone: #6b7280;
+  --minecraft-diamond: #06b6d4;
+  --minecraft-gold: #fbbf24;
+  --minecraft-redstone: #ef4444;
+  --minecraft-purple: #a855f7;
+
+  /* Text Colors */
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+
+  /* Borders */
+  --border-color: #374151;
+  --border-pixel: #2d2d4a;
+
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* Pixel Font Class */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Minecraft-style button 3D effect */
+.pixel-button {
+  position: relative;
+  background: linear-gradient(180deg, #4ade80 0%, #22c55e 100%);
+  border: none;
+  padding: 12px 24px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow:
+    0 4px 0 #166534,
+    0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pixel-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #166534,
+    0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.pixel-button:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #166534,
+    0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Glow effect */
+.glow-green {
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.glow-green:hover {
+  box-shadow: 0 0 30px rgba(74, 222, 128, 0.5);
+}
+
+/* Card hover animations */
+.server-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid var(--border-pixel);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.server-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--minecraft-green);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(74, 222, 128, 0.15);
+}
+
+/* Pixel border effect */
+.pixel-border {
+  border: 3px solid transparent;
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    linear-gradient(135deg, var(--minecraft-green) 0%, var(--minecraft-purple) 100%) border-box;
+}
+
+/* Background patterns */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(74, 222, 128, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 222, 128, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-voxel-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234ade80' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #4ade80 0%, #06b6d4 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--minecraft-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--minecraft-green-dark);
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(74, 222, 128, 0.6);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Premium badge */
+.premium-badge {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #000;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Online status */
+.status-online {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4ade80;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Hide scrollbar for categories */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
