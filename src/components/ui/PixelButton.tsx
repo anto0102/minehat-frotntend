@@ -11,6 +11,8 @@ interface PixelButtonProps {
   disabled?: boolean;
   className?: string;
   icon?: ReactNode;
+  type?: 'button' | 'submit' | 'reset';
+  isLoading?: boolean;
 }
 
 export default function PixelButton({
@@ -20,10 +22,12 @@ export default function PixelButton({
   onClick,
   disabled = false,
   className = '',
-  icon
+  icon,
+  type = 'button',
+  isLoading = false
 }: PixelButtonProps) {
   const baseStyles = "relative font-pixel uppercase tracking-wider cursor-pointer transition-all duration-150 flex items-center justify-center gap-2";
-  
+
   const variants = {
     primary: "bg-gradient-to-b from-[#4ade80] to-[#22c55e] text-black shadow-[0_4px_0_#166534,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_0_#166534,0_8px_15px_rgba(0,0,0,0.4)] active:shadow-[0_2px_0_#166534,0_3px_5px_rgba(0,0,0,0.2)]",
     secondary: "bg-gradient-to-b from-[#6366f1] to-[#4f46e5] text-white shadow-[0_4px_0_#3730a3,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_0_#3730a3,0_8px_15px_rgba(0,0,0,0.4)] active:shadow-[0_2px_0_#3730a3,0_3px_5px_rgba(0,0,0,0.2)]",
@@ -39,13 +43,18 @@ export default function PixelButton({
 
   return (
     <motion.button
+      type={type}
       onClick={onClick}
-      disabled={disabled}
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
-      whileHover={{ y: disabled ? 0 : -2 }}
-      whileTap={{ y: disabled ? 0 : 2 }}
+      disabled={disabled || isLoading}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${disabled || isLoading ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
+      whileHover={{ y: disabled || isLoading ? 0 : -2 }}
+      whileTap={{ y: disabled || isLoading ? 0 : 2 }}
     >
-      {icon && <span>{icon}</span>}
+      {isLoading ? (
+        <span className="animate-spin">⏳</span>
+      ) : (
+        icon && <span>{icon}</span>
+      )}
       {children}
     </motion.button>
   );
